@@ -1,0 +1,85 @@
+
+
+.sentMessageContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 2%;
+  color: #828282;
+  letter-spacing: 0.3px;
+}
+
+.senderDetails {
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-end;
+  color: #828282;
+  letter-spacing: 0.3px;
+  padding-right: 10px;
+}
+
+.sentMessageBox {
+  background: #6FFFE9;
+  border-radius: 15px 15px 0px 15px;
+  display: inline-block;
+  max-width: 80%;
+  padding: 10px 10px;
+}
+
+.sentMessage {
+  width: 100%;
+  letter-spacing: 1px;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+  color: black;
+}
+.senderAvatar{
+  margin-left: 5px;
+  display: flex;
+  align-self: flex-end;
+  color: black;
+}
+
+
+.recievedMessageContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 2%;
+  color: #828282;
+  letter-spacing: 0.3px;
+
+}
+
+.recieverDetails {
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-end;
+  color: #828282;
+  letter-spacing: 0.3px;
+  padding-left: 10px;
+}
+
+.recievedMessageBox {
+  background: rgb(240, 88, 88);
+  border-radius: 15px 15px 15px 0px;
+  display: inline-block;
+  max-width: 80%;
+  padding: 10px 10px;
+}
+
+.recievedMessage {
+  width: 100%;
+  letter-spacing: 1px;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+  color: white;
+}
+.recieverAvatar{
+  margin-right: 5px;
+  display: flex;
+  align-self: flex-end;
+  color: black;
+}
