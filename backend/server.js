@@ -4,13 +4,12 @@ const jwt = require("jsonwebtoken");
 const {
   sequelize,
   Users,
-  Requests,
+  Rooms,
   Chat,
   LoginLog
 } = require("./models/db_model");
 const { serverLog, dbLog } = require("./Loggers/loggers");
 const { router } = require("./Routes/routes");
-const moment = require("moment");
 require("dotenv").config();
 
 app.use(cors());
@@ -128,9 +127,9 @@ io.on("connection", async socket => {
         for (let i = 0; i < live[`${uid}`].rooms.length; i++) {
           console.log(live[`${uid}`].rooms[i]);
           socket.join(live[`${uid}`].rooms[i], () => {
-            // socket
-            //   .to(roomName(uid, live[`${uid}`].contacts[i]))
-            //   .broadcast.emit("online", { contact: uid });
+            socket
+              .to(live[`${uid}`].rooms[i])
+              .broadcast.emit("online", { room: live[`${uid}`].rooms[i] ,member: uid });
           });
         }
       }
@@ -247,18 +246,25 @@ io.on("connection", async socket => {
     socket.to(data.toID).broadcast.emit("typing", { fromId: data.uid });
   });
 
-  // //onlinePoll Listener
-  // socket.on("poll", data => {
-  //   serverLog.info(`contact poll requested by user ${data.uid}`);
-  //   if (live[`${data.uid}`].contacts != null) {
-  //     for (let i = 0; i < live[`${data.uid}`].contacts.length; i++) {
-  //       let cid = live[`${data.uid}`].contacts[i];
-  //       if (live[`${cid}`]) socket.emit("online", { contact: `${cid}` });
-  //       else socket.emit("offline", { contact: `${cid}` });
-  //     }
-  //   }
-  //   serverLog.info(`contact polling finished for user ${data.uid}`);
-  // });
+  //onlinePoll Listener
+  socket.on("poll", data => {
+    serverLog.info(`contact poll requested by user ${data.uid}`);
+    for(var x in live){
+      if(live.hasOwnProperty(x) && x!=data.uid){
+        if(live[`${x}`].rooms != null ){
+          for(var i=0;i<live[`${x}`].rooms.length;i++){
+            for(var j=0;j<live[`${data.uid}`].rooms.length;j++){
+              if(live[`${x}`].rooms[i]==live[`${data.uid}`].rooms[j]){
+                live[`${x}`].sid.to(live[`${x}`].rooms[i])
+                .broadcast.emit('online',{room:live[`${x}`].rooms[i],member: x});
+              }
+            }
+          }
+        }
+      }
+    }
+    serverLog.info(`contact polling finished for user ${data.uid}`);
+  });
 
   //diconnect Listener
   socket.on("disconnecting", reason => {
@@ -268,7 +274,7 @@ io.on("connection", async socket => {
         for (let i = 0; i < live[`${id}`].rooms.length; i++) {
           socket
             .to(live[`${id}`].rooms[i])
-            .broadcast.emit("offline", { room: id });
+            .broadcast.emit("offline", { room: live[`${id}`].rooms[i] ,member: id });
           socket.leave(live[`${id}`].rooms[i]);
         }
       }
