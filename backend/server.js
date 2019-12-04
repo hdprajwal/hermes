@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 const {
   sequelize,
   Users,
-  Rooms,
   Chat,
   LoginLog
 } = require("./models/db_model");
