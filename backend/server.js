@@ -34,30 +34,30 @@ const io = require("socket.io")(server);
 let live = {};
 let live2 = {};
 
-function roomName(id1, id2) {
-  return `${id1}`.localeCompare(`${id2}`) < 0 ? `${id1}${id2}` : `${id2}${id1}`;
-}
+// function roomName(id1, id2) {
+//   return `${id1}`.localeCompare(`${id2}`) < 0 ? `${id1}${id2}` : `${id2}${id1}`;
+// }
 
-function contact_update(list, id, id2, tunnel) {
-  Users.update(
-    { contacts: list },
-    {
-      where: {
-        UID: id
-      }
-    }
-  )
-    .then(() => {
-      dbLog.info(`Added contact ${id2} to UID= ${id}`);
-      serverLog.info(`Updated contacts of UID= ${id}`);
-    })
-    .catch(err => {
-      if (tunnel)
-        tunnel.emit("error", `Failed to add contact with fromID= ${id2}`);
-      dbLog.error(`Failed to add contact ${id2} to UID= ${id}. Error: ${err}`);
-      serverLog.error(`Failed to Update contacts of UID= ${id}`);
-    });
-}
+// function contact_update(list, id, id2, tunnel) {
+//   Users.update(
+//     { contacts: list },
+//     {
+//       where: {
+//         UID: id
+//       }
+//     }
+//   )
+//     .then(() => {
+//       dbLog.info(`Added contact ${id2} to UID= ${id}`);
+//       serverLog.info(`Updated contacts of UID= ${id}`);
+//     })
+//     .catch(err => {
+//       if (tunnel)
+//         tunnel.emit("error", `Failed to add contact with fromID= ${id2}`);
+//       dbLog.error(`Failed to add contact ${id2} to UID= ${id}. Error: ${err}`);
+//       serverLog.error(`Failed to Update contacts of UID= ${id}`);
+//     });
+// }
 
 io.use((socket, next) => {
   let token = socket.handshake.query.token;
@@ -103,7 +103,7 @@ io.on("connection", async socket => {
     IPAddr: socket.handshake.address
   })
     .then(out => {
-      dbLog.info(`LoginLog created with 'online' action of user ${uid}`);
+      dbLog.info(`LoginLog created with 'online' action of user ${uid} with IP= ${socket.handshake.address}`);
       serverLog.info(`user ${uid} is ONLINE`);
     })
     .catch(err => {
