@@ -26,8 +26,7 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Landing from "./Components/Landing/Landing";
-import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
-const jwt = require("jsonwebtoken");
+import Admin from "./Components/Admin";
 
 // electron-store import
 // var { app, BrowserWindow } = window.require("electron").remote;
@@ -61,11 +60,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loggedin: false,
-      page: localStorage.getItem("token")
-        ? jwt.decode(localStorage.getItem("token")).UID
-          ? "landing"
-          : "login"
-        : "login"
+      page: localStorage.getItem("token") ? "landing" : "login"
     };
   }
 
@@ -112,6 +107,9 @@ class App extends React.Component {
                   {" "}
                   <Register />{" "}
                 </Route>
+                <Router exact path="/admin">
+                  <Admin />
+                </Router>
               </Switch>
             </Router>
           </Col>

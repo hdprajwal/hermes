@@ -1,33 +1,38 @@
 import React, { Component } from "react";
-import { Form, Icon, Button, Select, Card } from "antd";
-
+import { Form, Icon, Button, Select, Carousel } from "antd";
+import illustration1 from "./undraw_texting_k35o.svg";
+import illustration2 from "./undraw_begin_chat_c6pj.svg";
+import illustration3 from "./undraw_connected_8wvi.svg";
 import { IP, KEY } from "./../config";
 import { Link } from "react-router-dom";
 const jwt = require("jsonwebtoken");
 
 const { Option } = Select;
-let rooms = [
-  {
-    RID: "96f57110-1276-11ea-ae82-21593fb3fbea",
-    name: "CS GO"
-  },
-  {
-    RID: "97e29030-1276-11ea-ae82-21593fb3fbea",
-    name: "BOMB SQUAD"
-  },
-  {
-    RID: "99667110-1276-11ea-ae82-21593fb3fbea",
-    name: "COD"
-  },
-  {
-    RID: "9aa90330-1276-11ea-ae82-21593fb3fbea",
-    name: "COD"
-  }
-];
+
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      rooms: []
+    };
+
+    fetch(`http://${IP}:4000/graphql`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `{
+          roomsList{
+            RID
+            name
+          }
+        }`
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res.data.roomsList);
+        this.setState({ rooms: res.data.roomsList });
+      });
   }
   handleSubmit = e => {
     e.preventDefault();
@@ -64,19 +69,35 @@ class Register extends Component {
     return (
       <section
         className="hero is-fullheight"
-        style={{ backgroundColor: "#0B132B" }}
+        style={{ backgroundColor: "#F0F2F5" }}
       >
-        <h1 className="is-size-1" style={{ color: "white" }}>
+        <h1 className="is-size-1" style={{ color: "black" }}>
           HERMES
         </h1>
         <div className="hero-body">
           <div className="container">
             <div className="columns">
-              <div className="column is-5 is-offset-7">
-                <Card bordered={false} style={{ background: "#1C2541" }}>
+              <div className="column is-5 ">
+                <Carousel autoplay>
+                  <div>
+                    <img src={illustration1} />
+                  </div>
+                  <div>
+                    <img src={illustration2} />
+                  </div>
+                  <div>
+                    <img src={illustration3} />
+                  </div>
+                </Carousel>
+              </div>
+              <div className="column is-5 is-offset-2">
+                <div className="box">
                   <h1
                     className="is-size-2"
-                    style={{ color: "white", textAlign: "center" }}
+                    style={{
+                      color: "black",
+                      textAlign: "center"
+                    }}
                   >
                     Register
                   </h1>
@@ -91,13 +112,11 @@ class Register extends Component {
                         ]
                       })(
                         <div>
-                          <label style={{ color: "white" }}>Email</label>
+                          <label style={{ color: "black" }}>Email</label>
                           <input
                             className="input"
                             style={{
-                              background: "#0B132B",
-                              color: "white",
-                              border: "blue"
+                              color: "black"
                             }}
                             prefix={
                               <Icon
@@ -120,13 +139,11 @@ class Register extends Component {
                         ]
                       })(
                         <div>
-                          <label style={{ color: "white" }}>UserName</label>
+                          <label style={{ color: "black" }}>UserName</label>
                           <input
                             className="input"
                             style={{
-                              background: "#0B132B",
-                              color: "white",
-                              border: "black"
+                              color: "black"
                             }}
                             prefix={
                               <Icon
@@ -149,15 +166,13 @@ class Register extends Component {
                         ]
                       })(
                         <div>
-                          <label style={{ color: "white" }}>Password</label>
+                          <label style={{ color: "black" }}>Password</label>
                           <input
                             minLength="8"
                             className="input"
                             type="password"
                             style={{
-                              background: "#0B132B",
-                              color: "white",
-                              border: "black"
+                              color: "black"
                             }}
                             prefix={
                               <Icon
@@ -170,51 +185,53 @@ class Register extends Component {
                         </div>
                       )}
                     </Form.Item>
-                    <Form.Item>
-                      {getFieldDecorator("rooms", {
-                        rules: [
-                          {
-                            required: true,
-                            message: "Please select rooms!"
-                          }
-                        ]
-                      })(
-                        <Select
-                          mode="multiple"
-                          style={{ width: "100%" }}
-                          placeholder="Select Rooms"
-                          // onChange={handleChange}
-                        >
-                          {rooms.map(each => {
-                            return (
-                              <Option value={each.RID}>{each.name}</Option>
-                            );
-                          })}
-                        </Select>
-                      )}
-                    </Form.Item>
+                    {this.state.rooms.length > 0 ? (
+                      <Form.Item>
+                        {getFieldDecorator("rooms", {
+                          rules: [
+                            {
+                              required: false,
+                              message: "Please select rooms!"
+                            }
+                          ]
+                        })(
+                          <Select
+                            mode="multiple"
+                            style={{ width: "100%" }}
+                            placeholder="Select Rooms"
+                            // onChange={handleChange}
+                          >
+                            {this.state.rooms.map(each => {
+                              return (
+                                <Option value={each.RID}>{each.name}</Option>
+                              );
+                            })}
+                          </Select>
+                        )}
+                      </Form.Item>
+                    ) : null}
                     <Form.Item>
                       <Button
                         type="primary"
                         htmlType="submit"
                         style={{
                           width: "100%",
-                          background: "#6FFFE9",
-                          border: "#6FFFE9",
-                          color: "#0B132B"
+                          background: "#6C63FF",
+                          border: "#6C63FF",
+                          color: "#fff"
                         }}
                       >
                         Register
                       </Button>
-                      <p style={{ color: "white" }}>
+                      <p style={{ color: "black" }}>
                         Already have an Account ?{" "}
-                        <Link to="/" style={{ color: "#6FFFE9" }}>
+                        <Link to="/" style={{ color: "#6C63FF" }}>
                           Login
                         </Link>
                       </p>
                     </Form.Item>
                   </Form>
-                </Card>
+                </div>
               </div>
             </div>
           </div>

@@ -466,17 +466,7 @@ class Landing extends Component {
                           <Row>
                             <Col span={24}>
                               <Row gutter={12} type="flex" justify="center">
-                                <Col span={0.5}>
-                                  {/* <Upload
-                                    beforeUpload={this.beforeUpload}
-                                    onChange={this.handleChange}
-                                  >
-                                    <Button style={{ width: "100%" }}>
-                                      <Icon type="upload" />
-                                    </Button>
-                                  </Upload> */}
-                                </Col>
-                                <Col span={22}>
+                                <Col span={23}>
                                   <input
                                     placeholder="Type Somthing..."
                                     value={this.state.messageField}
@@ -515,24 +505,32 @@ class Landing extends Component {
                                       />
                                     </span>
                                   ) : (
-                                    <p
+                                    <Button
                                       style={styles.getEmojiButton}
                                       onClick={this.showEmojis}
                                     >
                                       {String.fromCodePoint(0x1f60a)}
-                                    </p>
+                                    </Button>
                                   )}
                                 </Col>
                               </Row>
                             </Col>
                           </Row>
                         </Col>
-                        <Divider
-                          type="vertical"
-                          style={{ fontSize: "2px", color: "black" }}
-                        />
-                        <Col span={2}>
-                          People Online
+                        <Col
+                          span={2}
+                          style={{ background: "#F0F2F5", height: "93vh" }}
+                        >
+                          <h1
+                            className="is-size-5"
+                            style={{
+                              color: "black",
+                              display: "flex",
+                              justifyContent: "center"
+                            }}
+                          >
+                            People Online
+                          </h1>
                           <Row>
                             <Button type="link">
                               <Badge color="green" />

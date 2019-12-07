@@ -1860,3 +1860,242 @@
 2019-11-29T07:12:52.711Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
 2019-11-29T07:12:52.720Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
 2019-11-29T07:13:45.335Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:28:37.618Z@info: User queried with email= undefined
+2019-11-29T16:28:37.747Z@info: Login log complete with UID= undefined ip= 
+2019-11-29T16:28:37.894Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:28:37.900Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:28:37.920Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:28:38.005Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:29:52.972Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:29:55.951Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:29:58.212Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=99667110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:30:12.665Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:32:00.490Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:32:01.591Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:32:01.594Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:32:01.600Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:32:01.690Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:32:03.213Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:05.693Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:06.621Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:06.625Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:06.635Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:06.731Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:33:09.091Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:46.656Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:47.539Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:47.545Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:47.554Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:33:47.674Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:33:49.273Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:34:06.170Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:34:07.039Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:34:07.041Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:34:07.055Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:34:07.130Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:34:08.417Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:35:18.853Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:35:19.984Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:25.289Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:36:25.453Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:25.455Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:25.462Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:25.574Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:37.209Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:37.758Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:36:38.986Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:38.991Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:39.145Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:40.445Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:47.289Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:48.001Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:48.007Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:48.017Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:36:48.081Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:36:52.830Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:37:19.051Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:37:19.552Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:37:19.554Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:37:19.560Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:37:19.601Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:37:24.989Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:31.635Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:32.560Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:38:33.121Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:33.129Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:33.265Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:34.159Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:55.959Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:56.442Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:56.446Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:56.455Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:38:56.567Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:38:58.100Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:13.859Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:39:14.146Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:14.247Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:14.252Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:14.410Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:15.514Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:39:28.326Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:41:19.764Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:41:20.579Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:41:20.581Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:41:20.588Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:41:20.670Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:41:21.468Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:43:12.475Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:43:13.353Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:43:13.355Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:43:13.360Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:43:13.453Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:43:14.780Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:44:35.757Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:44:36.755Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:45:11.155Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=9aa90330-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:45:11.874Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=99667110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:45:12.984Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:45:13.950Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:13.809Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:15.062Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:15.065Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:15.216Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:50:15.248Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:17.929Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:54.507Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:54.563Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:54.567Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:54.593Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:50:54.612Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:50:56.119Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:26.052Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:51:26.095Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:26.097Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:26.105Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:26.163Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:29.192Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:45.681Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:46.040Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:46.043Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:46.141Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-29T16:51:47.443Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:48.401Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:55.783Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:51:58.069Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:52:00.395Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:52:03.052Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:52:06.206Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:52:10.696Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:56:24.558Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:56:25.342Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=99667110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:56:26.180Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=9aa90330-1276-11ea-ae82-21593fb3fbea
+2019-11-29T16:56:26.931Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T17:21:35.551Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-29T17:21:38.322Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-29T18:05:33.160Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T06:41:32.987Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T06:41:33.001Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T06:41:33.058Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T06:41:33.361Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T06:42:33.575Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T07:59:08.486Z@warn: Failed to find user with email: hdprajawlgowda@gmail.com with error: TypeError: Cannot read property 'UID' of null
+2019-11-30T07:59:19.143Z@info: User queried with email= undefined
+2019-11-30T07:59:19.193Z@info: Login log complete with UID= undefined ip= 
+2019-11-30T07:59:19.320Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T07:59:19.327Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T07:59:19.337Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T07:59:19.381Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:00:33.424Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:00:44.988Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:00:54.312Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:46.563Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:47.941Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:47.943Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:47.949Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:48.014Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:05:53.467Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:54.975Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:54.979Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:54.987Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:05:55.022Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:06:44.650Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:06:45.952Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:06:45.954Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:06:45.960Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:06:46.127Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:07:17.717Z@info: User created with args={"email":"prajwalhd46@gmail.com","name":"Prajwal ","password":"timepass","rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea"],"iat":1575101237}
+2019-11-30T08:07:17.725Z@info: Verification code found for email=prajwalhd46@gmail.com
+2019-11-30T08:11:09.424Z@info: Verification quried with email= prajwalhd46@gmail.com
+2019-11-30T08:11:09.443Z@info: Verification record deleted with email: prajwalhd46@gmail.com
+2019-11-30T08:11:33.069Z@info: User queried with email= undefined
+2019-11-30T08:11:33.082Z@info: Login log complete with UID= undefined ip= 
+2019-11-30T08:11:33.191Z@info: LoginLog created with 'online' action of user 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:11:33.202Z@info: user data queried UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:11:33.222Z@info: Updated user Login status UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:11:33.389Z@info: user queried :	{"UID":"6d094ac0-1348-11ea-9f67-25d1f3e68c2d","about":null,"verified":true,"email":"prajwalhd46@gmail.com","name":"Prajwal ","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:11:53.998Z@info: user Requests query made with UID=6d094ac0-1348-11ea-9f67-25d1f3e68c2d roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:11:59.536Z@info: Created new chat with fromID= 6d094ac0-1348-11ea-9f67-25d1f3e68c2d, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:04.469Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:08.763Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:43.310Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:43.321Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:43.332Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:44.872Z@info: LoginLog created with 'online' action of user 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:44.884Z@info: user data queried UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:44.899Z@info: Updated user Login status UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:47.811Z@info: LoginLog created with action 'offline' of user 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:47.961Z@info: LoginLog created with 'online' action of user 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:47.965Z@info: user data queried UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:47.973Z@info: Updated user Login status UID = 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T08:12:48.054Z@info: user queried :	{"UID":"6d094ac0-1348-11ea-9f67-25d1f3e68c2d","about":null,"verified":true,"email":"prajwalhd46@gmail.com","name":"Prajwal ","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea"]}
+2019-11-30T08:12:49.672Z@info: user Requests query made with UID=6d094ac0-1348-11ea-9f67-25d1f3e68c2d roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:12:58.734Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:13:14.674Z@info: Created new chat with fromID= 6d094ac0-1348-11ea-9f67-25d1f3e68c2d, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:13:49.831Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:13:51.845Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:17:08.733Z@info: Created new chat with fromID= b3d282a0-1276-11ea-ae82-21593fb3fbea, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:17:15.226Z@info: Created new chat with fromID= 6d094ac0-1348-11ea-9f67-25d1f3e68c2d, toID= 96f57110-1276-11ea-ae82-21593fb3fbea
+2019-11-30T08:17:42.786Z@info: LoginLog created with action 'offline' of user 6d094ac0-1348-11ea-9f67-25d1f3e68c2d
+2019-11-30T14:28:41.884Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-06T04:19:25.013Z@info: User queried with email= undefined
+2019-12-06T04:19:25.141Z@info: Login log complete with UID= undefined ip= 
+2019-12-06T04:19:25.214Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-06T04:19:25.220Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-06T04:19:25.234Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-06T04:19:25.353Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-06T04:36:50.693Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:47:25.069Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-07T12:47:25.216Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:47:25.227Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:47:25.263Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:57:36.005Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:58:30.852Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=97e29030-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:58:31.473Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=99667110-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:58:33.037Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=9aa90330-1276-11ea-ae82-21593fb3fbea
+2019-12-07T12:58:34.094Z@info: user Requests query made with UID=b3d282a0-1276-11ea-ae82-21593fb3fbea roomID=96f57110-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:45.222Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-07T13:00:45.294Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:45.299Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:45.303Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:45.331Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:47.406Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:48.090Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-07T13:00:48.092Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:48.099Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:00:49.547Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:01:56.715Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:05:14.276Z@info: User queried with email= undefined
+2019-12-07T13:05:18.884Z@info: User queried with email= undefined
+2019-12-07T13:05:29.768Z@info: User queried with email= undefined
+2019-12-07T13:06:30.813Z@info: User queried with email= undefined
+2019-12-07T13:06:30.954Z@info: Login log complete with UID= undefined ip= 
+2019-12-07T13:06:31.027Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:06:31.030Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:06:31.044Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:06:31.083Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-07T13:07:53.875Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:07:54.805Z@info: LoginLog created with 'online' action of user b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:07:54.811Z@info: user data queried UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:07:54.829Z@info: Updated user Login status UID = b3d282a0-1276-11ea-ae82-21593fb3fbea
+2019-12-07T13:07:54.941Z@info: user queried :	{"UID":"b3d282a0-1276-11ea-ae82-21593fb3fbea","about":null,"verified":true,"email":"hdprajwalgowda@gmail.com","name":"Prajwal Gowda","image":null,"rooms":["96f57110-1276-11ea-ae82-21593fb3fbea","97e29030-1276-11ea-ae82-21593fb3fbea","99667110-1276-11ea-ae82-21593fb3fbea","9aa90330-1276-11ea-ae82-21593fb3fbea"]}
+2019-12-07T13:11:30.706Z@info: LoginLog created with action 'offline' of user b3d282a0-1276-11ea-ae82-21593fb3fbea

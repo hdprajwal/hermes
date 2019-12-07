@@ -247,6 +247,21 @@ const rootQueryType = new GraphQLObjectType({
       resolve(parent, args) {
         return Rooms.findAll();
       }
+    },
+    usersInRoomList: {
+      type: GraphQLList(userType),
+      args: {
+        roomID: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        return Users.findAll({
+          where: {
+            rooms: {
+              [Op.contains]: [args.roomID]
+            }
+          }
+        });
+      }
     }
   }
 });

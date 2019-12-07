@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar } from "antd";
+import { Avatar, Icon } from "antd";
 import moment from "moment";
 import "./Message.css";
 const jwt = require("jsonwebtoken");

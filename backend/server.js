@@ -189,7 +189,7 @@ io.on("connection", async socket => {
     };
     serverLog.info(`Chat sent from= ${data.uid} to= ${data.toID}`);
     // update.status = true;
-    socket.to(data.toID).broadcast.emit("chat", chat);
+    socket.to(data.toID).broadcast.emit("chat", chatEmit);
 
     await Chat.create(chat)
       .then(out => {
