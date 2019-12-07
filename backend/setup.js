@@ -11,6 +11,18 @@ sequelize
     console.log("Schema setup complete.");
     sequelize
       .query(
+        "ALTER TABLE login_log ADD FOREIGN KEY(userid) REFERENCES users(uid) ON DELETE CASCADE;"
+      )
+      .then(() => console.log("login_log foreign key setup done."))
+      .catch(err => console.log(err));
+    sequelize
+      .query(
+        "ALTER TABLE chat_log ADD FOREIGN KEY(from_i_d) REFERENCES users(uid) ON DELETE CASCADE;"
+      )
+      .then(() => console.log("chat_log foreign key setup done."))
+      .catch(err => console.log(err));
+    sequelize
+      .query(
         "CREATE OR REPLACE FUNCTION user_verify() RETURNS trigger AS $user_verify$ " +
           "BEGIN " +
           "INSERT INTO verification VALUES(NEW.email,random()*10000,current_timestamp);" +
