@@ -41,19 +41,19 @@ let live2 = {};
 //     { contacts: list },
 //     {
 //       where: {
-//         UID: id
+//         uid: id
 //       }
 //     }
 //   )
 //     .then(() => {
-//       dbLog.info(`Added contact ${id2} to UID= ${id}`);
-//       serverLog.info(`Updated contacts of UID= ${id}`);
+//       dbLog.info(`Added contact ${id2} to uid= ${id}`);
+//       serverLog.info(`Updated contacts of uid= ${id}`);
 //     })
 //     .catch(err => {
 //       if (tunnel)
 //         tunnel.emit("error", `Failed to add contact with fromID= ${id2}`);
-//       dbLog.error(`Failed to add contact ${id2} to UID= ${id}. Error: ${err}`);
-//       serverLog.error(`Failed to Update contacts of UID= ${id}`);
+//       dbLog.error(`Failed to add contact ${id2} to uid= ${id}. Error: ${err}`);
+//       serverLog.error(`Failed to Update contacts of uid= ${id}`);
 //     });
 // }
 
@@ -81,7 +81,7 @@ io.on("connection", async socket => {
   //decoding Token
   try {
     let old_token = jwt.decode(socket.handshake.query.token);
-    uid = old_token.UID;
+    uid = old_token.uid;
     live[`${uid}`] = { sid: socket };
     live2[socket.id] = `${uid}`;
   } catch (err) {
@@ -97,7 +97,7 @@ io.on("connection", async socket => {
   //logging user connection to database
   await LoginLog.create({
     action: "online",
-    user: uid,
+    userid: uid,
     IPAddr: socket.handshake.address
   })
     .then(out => {
@@ -112,12 +112,12 @@ io.on("connection", async socket => {
   //joining chat rooms and setting login status
   await Users.findOne({
     where: {
-      UID: uid
+      uid: uid
     },
     attributes: ["rooms", "name", "email", "about"]
   })
     .then(out => {
-      dbLog.info("user data queried UID = " + uid);
+      dbLog.info("user data queried uid = " + uid);
       live[`${uid}`].name = out.name;
       live[`${uid}`].email = out.email;
       live[`${uid}`].about = out.about;
@@ -132,10 +132,10 @@ io.on("connection", async socket => {
           });
         }
       }
-      serverLog.info("user UID=" + uid + " has joined chat rooms");
+      serverLog.info("user uid=" + uid + " has joined chat rooms");
     })
     .catch(err => {
-      dbLog.error("Failed to query user with UID = " + uid + " error: " + err);
+      dbLog.error("Failed to query user with uid = " + uid + " error: " + err);
       serverLog.warn(`User not found ${uid}, therefore diconnecting socket.`);
       socket.emit("error", "invalid user entry : " + err);
       authFlag = false;
@@ -146,19 +146,19 @@ io.on("connection", async socket => {
     { login: true },
     {
       where: {
-        UID: uid
+        uid: uid
       }
     }
   )
     .then(() => {
-      dbLog.info("Updated user Login status UID = " + uid);
-      serverLog.info(`Login status set for user UID= ${uid}`);
+      dbLog.info("Updated user Login status uid = " + uid);
+      serverLog.info(`Login status set for user uid= ${uid}`);
     })
     .catch(err => {
       dbLog.error(
-        "Failed to Update login status UID = " + uid + ". error: " + err
+        "Failed to Update login status uid = " + uid + ". error: " + err
       );
-      serverLog.error(`Failed to set Login status of user UID= ${uid}`);
+      serverLog.error(`Failed to set Login status of user uid= ${uid}`);
     });
 
   //outChat Listener
@@ -180,7 +180,7 @@ io.on("connection", async socket => {
       toID: data.toID,
       message: data.message,
       fromIDDetails: {
-        UID: data.uid,
+        uid: data.uid,
         name: live[data.uid].name
       },
       createdAt: data.createdAt
@@ -192,7 +192,7 @@ io.on("connection", async socket => {
     await Chat.create(chat)
       .then(out => {
         out.formIDDetails = {
-          UID: data.fromID,
+          uid: data.fromID,
           name: live[data.uid].name
         };
         dbLog.info(
@@ -281,7 +281,7 @@ io.on("connection", async socket => {
       delete live2[socket.id];
       LoginLog.create({
         action: "offline",
-        user: id,
+        userid: id,
         IPAddr: socket.handshake.address
       })
         .then(out => {
@@ -292,7 +292,7 @@ io.on("connection", async socket => {
           dbLog.error(`Failed to create LoginLog of user ${id}. Error: ${err}`);
           serverLog.warn(`Failed to log offline status of user ${id}`);
         });
-      serverLog.info(`user disconnected with UID= ${id}. Reason = ${reason}`);
+      serverLog.info(`user disconnected with uid= ${id}. Reason = ${reason}`);
     }
   });
 });

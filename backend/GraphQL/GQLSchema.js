@@ -15,7 +15,7 @@ const { dbLog, serverLog } = require("../Loggers/loggers");
 const userType = new GraphQLObjectType({
   name: "user",
   fields: () => ({
-    UID: { type: GraphQLID },
+    uid: { type: GraphQLID },
     about: { type: GraphQLString },
     verified: { type: GraphQLBoolean },
     email: { type: GraphQLString },
@@ -49,7 +49,7 @@ const userType = new GraphQLObjectType({
 const userChainType = new GraphQLObjectType({
   name: "userChain",
   fields: () => ({
-    UID: { type: GraphQLID },
+    uid: { type: GraphQLID },
     about: { type: GraphQLString },
     image: { type: GraphQLString },
     email: { type: GraphQLString },
@@ -62,7 +62,7 @@ const userChainType = new GraphQLObjectType({
 const userListType = new GraphQLObjectType({
   name: "userList",
   fields: () => ({
-    UID: { type: GraphQLID },
+    uid: { type: GraphQLID },
     image: { type: GraphQLString },
     name: { type: GraphQLString },
     email: { type: GraphQLString }
@@ -86,9 +86,9 @@ const chatType = new GraphQLObjectType({
       type: userType,
       async resolve(parent, args) {
         return await Users.findOne({
-          attributes: ["UID", "name"],
+          attributes: ["uid", "name"],
           where: {
-            UID: parent.fromID
+            uid: parent.fromID
           }
         });
       }
@@ -119,18 +119,19 @@ const roomsType = new GraphQLObjectType({
   })
 });
 
+
 const rootQueryType = new GraphQLObjectType({
   name: "root",
   fields: {
     userID: {
       type: userType,
-      args: { UID: { type: new GraphQLNonNull(GraphQLID) } },
+      args: { uid: { type: new GraphQLNonNull(GraphQLID) } },
       async resolve(parent, args) {
         let res;
         console.log(args);
         await Users.findOne({
           attributes: [
-            "UID",
+            "uid",
             "about",
             "verified",
             "email",
@@ -139,12 +140,12 @@ const rootQueryType = new GraphQLObjectType({
             "rooms"
           ],
           where: {
-            UID: args.UID
+            uid: args.uid
           }
         })
           .then(out => {
             // console.log(out);
-            serverLog.info(`userID query made with id=${args.UID}`);
+            serverLog.info(`userID query made with id=${args.uid}`);
             dbLog.info(`user queried :\t${JSON.stringify(out)}`);
             res = out;
           })
@@ -162,7 +163,7 @@ const rootQueryType = new GraphQLObjectType({
         let res;
         await Users.findOne({
           attributes: [
-            "UID",
+            "uid",
             "about",
             "verified",
             "email",
@@ -189,7 +190,7 @@ const rootQueryType = new GraphQLObjectType({
     chats: {
       type: new GraphQLList(chatType),
       args: {
-        UID: { type: new GraphQLNonNull(GraphQLID) },
+        uid: { type: new GraphQLNonNull(GraphQLID) },
         roomID: {
           type: new GraphQLNonNull(GraphQLID)
         }
@@ -204,16 +205,16 @@ const rootQueryType = new GraphQLObjectType({
         })
           .then(out => {
             serverLog.info(
-              `user Chat query made with UID=${args.UID} roomID=${args.roomID}`
+              `user Chat query made with uid=${args.uid} roomID=${args.roomID}`
             );
             dbLog.info(
-              `user Requests query made with UID=${args.UID} roomID=${args.roomID}`
+              `user Requests query made with uid=${args.uid} roomID=${args.roomID}`
             );
             res = out;
           })
           .catch(err => {
             serverLog.error(
-              `Query to Chat Failed with UID=${args.UID} roomID=${args.roomID}`
+              `Query to Chat Failed with uid=${args.uid} roomID=${args.roomID}`
             );
             dbLog.error(`Query to Chat FAILED: ${err}`);
           });
@@ -225,7 +226,7 @@ const rootQueryType = new GraphQLObjectType({
       async resolve(parent, args) {
         let res;
         await Users.findAll({
-          attributes: ["UID", "verified", "image", "name", "email"],
+          attributes: ["uid", "verified", "image", "name", "email"],
           where: {
             verified: true
           }
@@ -257,7 +258,7 @@ const rootMutationType = new GraphQLObjectType({
     userDetails: {
       type: userDetailsType,
       args: {
-        UID: { type: new GraphQLNonNull(GraphQLID) },
+        uid: { type: new GraphQLNonNull(GraphQLID) },
         about: { type: GraphQLString },
         image: { type: GraphQLString }
       },
@@ -272,17 +273,17 @@ const rootMutationType = new GraphQLObjectType({
         if (update != null) {
           await Users.update(update, {
             where: {
-              UID: args.UID
+              uid: args.uid
             }
           })
             .then(() => {
-              serverLog.info(`Update to User successfull UID=${args.UID}`);
-              dbLog.info(`Update to User successfull UID=${args.UID}`);
+              serverLog.info(`Update to User successfull uid=${args.uid}`);
+              dbLog.info(`Update to User successfull uid=${args.uid}`);
             })
             .catch(err => {
               res.status = false;
               res.msg = err;
-              serverLog.error("Update to Users Failed with UID= " + args.UID);
+              serverLog.error("Update to Users Failed with uid= " + args.uid);
               dbLog.error(`Update to Users failed : ${err}`);
             });
           return res;
@@ -298,8 +299,36 @@ const rootMutationType = new GraphQLObjectType({
         let data = {
           name: args.name
         };
-        console.log(data);
+        serverLog.info(`Creating new room ${data.name}`);
+        dbLog.info(`Creating new room of data= ${data}`);
         return Rooms.create(data);
+      }
+    },
+    deleteUser: {
+      type: new GraphQLObjectType({
+        name: "deleteType",
+        fields: {
+          status:{type: GraphQLBoolean}
+        }
+      }),
+      args: {
+        uid: {type: GraphQLID}
+      },
+      async resolve(parent,args) {
+        var res = false;
+        Users.destroy({
+          where:{
+            uid: args.uid
+          }
+        }).then(()=>{
+          serverLog.info(`User deleted with uid= ${args.uid}`);
+          dbLog.info(`Successfully deleted User with uid= ${args.uid}`);
+          res=true;
+        }).catch((err)=>{
+          serverLog.error(`Failed to delete user with uid= ${args.uid}`);
+          dbLog.error(`User deletion failed with uid= ${args.uid} and error: ${err}`);
+        });
+        return res;
       }
     }
   }
