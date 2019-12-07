@@ -4,13 +4,11 @@ const jwt = require("jsonwebtoken");
 const {
   sequelize,
   Users,
-  Requests,
   Chat,
   LoginLog
 } = require("./models/db_model");
 const { serverLog, dbLog } = require("./Loggers/loggers");
 const { router } = require("./Routes/routes");
-const moment = require("moment");
 require("dotenv").config();
 
 app.use(cors());
@@ -34,30 +32,30 @@ const io = require("socket.io")(server);
 let live = {};
 let live2 = {};
 
-function roomName(id1, id2) {
-  return `${id1}`.localeCompare(`${id2}`) < 0 ? `${id1}${id2}` : `${id2}${id1}`;
-}
+// function roomName(id1, id2) {
+//   return `${id1}`.localeCompare(`${id2}`) < 0 ? `${id1}${id2}` : `${id2}${id1}`;
+// }
 
-function contact_update(list, id, id2, tunnel) {
-  Users.update(
-    { contacts: list },
-    {
-      where: {
-        UID: id
-      }
-    }
-  )
-    .then(() => {
-      dbLog.info(`Added contact ${id2} to UID= ${id}`);
-      serverLog.info(`Updated contacts of UID= ${id}`);
-    })
-    .catch(err => {
-      if (tunnel)
-        tunnel.emit("error", `Failed to add contact with fromID= ${id2}`);
-      dbLog.error(`Failed to add contact ${id2} to UID= ${id}. Error: ${err}`);
-      serverLog.error(`Failed to Update contacts of UID= ${id}`);
-    });
-}
+// function contact_update(list, id, id2, tunnel) {
+//   Users.update(
+//     { contacts: list },
+//     {
+//       where: {
+//         uid: id
+//       }
+//     }
+//   )
+//     .then(() => {
+//       dbLog.info(`Added contact ${id2} to uid= ${id}`);
+//       serverLog.info(`Updated contacts of uid= ${id}`);
+//     })
+//     .catch(err => {
+//       if (tunnel)
+//         tunnel.emit("error", `Failed to add contact with fromID= ${id2}`);
+//       dbLog.error(`Failed to add contact ${id2} to uid= ${id}. Error: ${err}`);
+//       serverLog.error(`Failed to Update contacts of uid= ${id}`);
+//     });
+// }
 
 io.use((socket, next) => {
   let token = socket.handshake.query.token;
@@ -83,7 +81,7 @@ io.on("connection", async socket => {
   //decoding Token
   try {
     let old_token = jwt.decode(socket.handshake.query.token);
-    uid = old_token.UID;
+    uid = old_token.uid;
     live[`${uid}`] = { sid: socket };
     live2[socket.id] = `${uid}`;
   } catch (err) {
@@ -99,11 +97,11 @@ io.on("connection", async socket => {
   //logging user connection to database
   await LoginLog.create({
     action: "online",
-    user: uid,
+    userid: uid,
     IPAddr: socket.handshake.address
   })
     .then(out => {
-      dbLog.info(`LoginLog created with 'online' action of user ${uid}`);
+      dbLog.info(`LoginLog created with 'online' action of user ${uid} with IP= ${socket.handshake.address}`);
       serverLog.info(`user ${uid} is ONLINE`);
     })
     .catch(err => {
@@ -114,12 +112,12 @@ io.on("connection", async socket => {
   //joining chat rooms and setting login status
   await Users.findOne({
     where: {
-      UID: uid
+      uid: uid
     },
     attributes: ["rooms", "name", "email", "about"]
   })
     .then(out => {
-      dbLog.info("user data queried UID = " + uid);
+      dbLog.info("user data queried uid = " + uid);
       live[`${uid}`].name = out.name;
       live[`${uid}`].email = out.email;
       live[`${uid}`].about = out.about;
@@ -128,16 +126,16 @@ io.on("connection", async socket => {
         for (let i = 0; i < live[`${uid}`].rooms.length; i++) {
           console.log(live[`${uid}`].rooms[i]);
           socket.join(live[`${uid}`].rooms[i], () => {
-            // socket
-            //   .to(roomName(uid, live[`${uid}`].contacts[i]))
-            //   .broadcast.emit("online", { contact: uid });
+            socket
+              .to(live[`${uid}`].rooms[i])
+              .broadcast.emit("online", { room: live[`${uid}`].rooms[i] ,member: uid });
           });
         }
       }
-      serverLog.info("user UID=" + uid + " has joined chat rooms");
+      serverLog.info("user uid=" + uid + " has joined chat rooms");
     })
     .catch(err => {
-      dbLog.error("Failed to query user with UID = " + uid + " error: " + err);
+      dbLog.error("Failed to query user with uid = " + uid + " error: " + err);
       serverLog.warn(`User not found ${uid}, therefore diconnecting socket.`);
       socket.emit("error", "invalid user entry : " + err);
       authFlag = false;
@@ -148,19 +146,19 @@ io.on("connection", async socket => {
     { login: true },
     {
       where: {
-        UID: uid
+        uid: uid
       }
     }
   )
     .then(() => {
-      dbLog.info("Updated user Login status UID = " + uid);
-      serverLog.info(`Login status set for user UID= ${uid}`);
+      dbLog.info("Updated user Login status uid = " + uid);
+      serverLog.info(`Login status set for user uid= ${uid}`);
     })
     .catch(err => {
       dbLog.error(
-        "Failed to Update login status UID = " + uid + ". error: " + err
+        "Failed to Update login status uid = " + uid + ". error: " + err
       );
-      serverLog.error(`Failed to set Login status of user UID= ${uid}`);
+      serverLog.error(`Failed to set Login status of user uid= ${uid}`);
     });
 
   //outChat Listener
@@ -182,7 +180,7 @@ io.on("connection", async socket => {
       toID: data.toID,
       message: data.message,
       fromIDDetails: {
-        UID: data.uid,
+        uid: data.uid,
         name: live[data.uid].name
       },
       createdAt: data.createdAt
@@ -194,7 +192,7 @@ io.on("connection", async socket => {
     await Chat.create(chat)
       .then(out => {
         out.formIDDetails = {
-          UID: data.fromID,
+          uid: data.fromID,
           name: live[data.uid].name
         };
         dbLog.info(
@@ -247,18 +245,25 @@ io.on("connection", async socket => {
     socket.to(data.toID).broadcast.emit("typing", { fromId: data.uid });
   });
 
-  // //onlinePoll Listener
-  // socket.on("poll", data => {
-  //   serverLog.info(`contact poll requested by user ${data.uid}`);
-  //   if (live[`${data.uid}`].contacts != null) {
-  //     for (let i = 0; i < live[`${data.uid}`].contacts.length; i++) {
-  //       let cid = live[`${data.uid}`].contacts[i];
-  //       if (live[`${cid}`]) socket.emit("online", { contact: `${cid}` });
-  //       else socket.emit("offline", { contact: `${cid}` });
-  //     }
-  //   }
-  //   serverLog.info(`contact polling finished for user ${data.uid}`);
-  // });
+  //onlinePoll Listener
+  socket.on("poll", data => {
+    serverLog.info(`contact poll requested by user ${data.uid}`);
+    for(var x in live){
+      if(live.hasOwnProperty(x) && x!=data.uid){
+        if(live[`${x}`].rooms != null ){
+          for(var i=0;i<live[`${x}`].rooms.length;i++){
+            for(var j=0;j<live[`${data.uid}`].rooms.length;j++){
+              if(live[`${x}`].rooms[i]==live[`${data.uid}`].rooms[j]){
+                live[`${x}`].sid.to(live[`${x}`].rooms[i])
+                .broadcast.emit('online',{room:live[`${x}`].rooms[i],member: x});
+              }
+            }
+          }
+        }
+      }
+    }
+    serverLog.info(`contact polling finished for user ${data.uid}`);
+  });
 
   //diconnect Listener
   socket.on("disconnecting", reason => {
@@ -268,7 +273,7 @@ io.on("connection", async socket => {
         for (let i = 0; i < live[`${id}`].rooms.length; i++) {
           socket
             .to(live[`${id}`].rooms[i])
-            .broadcast.emit("offline", { room: id });
+            .broadcast.emit("offline", { room: live[`${id}`].rooms[i] ,member: id });
           socket.leave(live[`${id}`].rooms[i]);
         }
       }
@@ -276,7 +281,7 @@ io.on("connection", async socket => {
       delete live2[socket.id];
       LoginLog.create({
         action: "offline",
-        user: id,
+        userid: id,
         IPAddr: socket.handshake.address
       })
         .then(out => {
@@ -287,7 +292,7 @@ io.on("connection", async socket => {
           dbLog.error(`Failed to create LoginLog of user ${id}. Error: ${err}`);
           serverLog.warn(`Failed to log offline status of user ${id}`);
         });
-      serverLog.info(`user disconnected with UID= ${id}. Reason = ${reason}`);
+      serverLog.info(`user disconnected with uid= ${id}. Reason = ${reason}`);
     }
   });
 });

@@ -2788,3 +2788,7 @@
 2019-12-07T13:07:54.940Z@[34minfo[39m: userID query made with id=b3d282a0-1276-11ea-ae82-21593fb3fbea
 2019-12-07T13:11:30.666Z@[34minfo[39m: user disconnected with UID= b3d282a0-1276-11ea-ae82-21593fb3fbea. Reason = transport close
 2019-12-07T13:11:30.706Z@[34minfo[39m: user b3d282a0-1276-11ea-ae82-21593fb3fbea is OFFLINE
+2019-12-07T14:16:16.350Z@[34minfo[39m: listening on port 4000
+2019-12-07T14:16:16.386Z@[34minfo[39m: Connection has been established successfully.
+2019-12-07T14:16:57.980Z@[34minfo[39m: listening on port 4000
+2019-12-07T14:16:58.016Z@[34minfo[39m: Connection has been established successfully.

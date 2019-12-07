@@ -43,35 +43,35 @@ router.post("/auth/login", (req, res) => {
   const token = jwt.decode(req.body);
   console.log(token);
   Users.findOne({
-    attributes: ["UID", "password", "verified"],
+    attributes: ["uid", "password", "verified"],
     where: {
       email: token.email
     }
   })
     .then(out => {
-      serverLog.info("User Login query with UID= " + out.UID);
+      serverLog.info("User Login query with uid= " + out.uid);
       dbLog.info("User queried with email= " + out.email);
       if (out.password == token.password) {
         if (out.verified == true) {
           LoginLog.create({
             action: "login",
-            user: out.UID,
+            userid: out.uid,
             IPAddr: `${req.ip.slice(8, req.ip.length)}`
           })
             .then(result => {
               serverLog.info("Login log creation complete");
               dbLog.info(
-                "Login log complete with UID= " +
-                  result.UID +
+                "Login log complete with uid= " +
+                  result.uid +
                   " ip= " +
                   result.IPAddr
               );
               const Rtoken = jwt.sign(
-                { UID: `${out.UID}` },
+                { uid: `${out.uid}` },
                 Buffer.from(process.env.KEY, "hex"),
                 { expiresIn: "30d" }
               );
-              serverLog.info("Token generated with UID= " + result.user);
+              serverLog.info("Token generated with uid= " + result.userid);
               res.status(200).send(Rtoken);
             })
             .catch(err => {
@@ -85,7 +85,7 @@ router.post("/auth/login", (req, res) => {
             });
         } else {
           serverLog.warn(
-            `Non Verified User login attempt with UID= ${out.UID}`
+            `Non Verified User login attempt with uid= ${out.uid}`
           );
           res.status(403).send("User is not verified");
         }
@@ -108,7 +108,7 @@ router.post("/auth/registration", async (req, res) => {
   console.log(token);
   Users.create(token)
     .then(out => {
-      serverLog.info("User created with UID=" + out.UID);
+      serverLog.info("User created with uid=" + out.uid);
       dbLog.info("User created with args=" + JSON.stringify(token));
       Verification.findOne({ where: { email: out.email } })
         .then(async result => {

@@ -5,7 +5,7 @@ const moment = require("moment");
 class Users extends Sequelize.Model {}
 Users.init(
   {
-    UID: {
+    uid: {
       type: Sequelize.UUID,
       allowNull: false,
       defaultValue: Sequelize.UUIDV1,
@@ -125,13 +125,9 @@ Verification.init(
 class LoginLog extends Sequelize.Model {}
 LoginLog.init(
   {
-    user: {
+    userid: {
       type: Sequelize.UUID,
       allowNull: false,
-      references: {
-        model: Users,
-        key: "UID"
-      },
       primaryKey: true
     },
     action: {
@@ -172,12 +168,7 @@ Chat.init(
     },
     fromID: {
       type: Sequelize.UUID,
-      allowNull: false,
-      references: {
-        model: Users,
-        key: "UID",
-        deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+      allowNull: false
     },
     toID: {
       type: Sequelize.UUID,
