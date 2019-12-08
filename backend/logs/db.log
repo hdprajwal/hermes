@@ -3739,3 +3739,10 @@
 2019-12-08T16:16:27.036Z@info: LoginLog created with 'online' action of user ea48eb70-19d4-11ea-b1a6-4f291606dcaf with IP= ::1
 2019-12-08T16:16:27.042Z@info: user data queried uid = ea48eb70-19d4-11ea-b1a6-4f291606dcaf
 2019-12-08T16:16:27.054Z@info: Updated user Login status uid = ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:17:28.079Z@info: LoginLog created with action 'offline' of user ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:17:28.087Z@info: user updated  ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:17:29.826Z@info: LoginLog created with 'online' action of user ea48eb70-19d4-11ea-b1a6-4f291606dcaf with IP= ::1
+2019-12-08T16:17:29.831Z@info: user data queried uid = ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:17:29.857Z@info: Updated user Login status uid = ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:17:30.113Z@info: user queried :	{"uid":"ea48eb70-19d4-11ea-b1a6-4f291606dcaf","about":"dfkfjgjhdkfjhg","verified":true,"email":"omkariyer99@gmail.com","name":"Omkar","image":null,"rooms":["f241e910-19cc-11ea-947c-432acf735b9f","fb4bc0d0-19cc-11ea-947c-432acf735b9f"]}
+2019-12-08T16:17:30.117Z@info: user queried :	{"uid":"ea48eb70-19d4-11ea-b1a6-4f291606dcaf","about":"dfkfjgjhdkfjhg","verified":true,"email":"omkariyer99@gmail.com","name":"Omkar","image":null,"rooms":["f241e910-19cc-11ea-947c-432acf735b9f","fb4bc0d0-19cc-11ea-947c-432acf735b9f"]}
