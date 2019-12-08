@@ -5770,3 +5770,11 @@
 2019-12-08T16:09:13.356Z@[34minfo[39m: user disconnected with uid= 7283faa0-19d2-11ea-b1a6-4f291606dcaf. Reason = client namespace disconnect
 2019-12-08T16:09:13.375Z@[34minfo[39m: user 7283faa0-19d2-11ea-b1a6-4f291606dcaf is OFFLINE
 2019-12-08T16:09:13.394Z@[34minfo[39m: user 7283faa0-19d2-11ea-b1a6-4f291606dcaf is OFFLINE
+2019-12-08T16:16:25.091Z@[34minfo[39m: user disconnected with uid= ea48eb70-19d4-11ea-b1a6-4f291606dcaf. Reason = transport close
+2019-12-08T16:16:25.107Z@[34minfo[39m: user ea48eb70-19d4-11ea-b1a6-4f291606dcaf is OFFLINE
+2019-12-08T16:16:25.114Z@[34minfo[39m: user ea48eb70-19d4-11ea-b1a6-4f291606dcaf is OFFLINE
+2019-12-08T16:16:27.026Z@[34minfo[39m: userID query made with id=ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:16:27.031Z@[34minfo[39m: userID query made with id=ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-08T16:16:27.036Z@[34minfo[39m: user ea48eb70-19d4-11ea-b1a6-4f291606dcaf is ONLINE
+2019-12-08T16:16:27.042Z@[34minfo[39m: user uid=ea48eb70-19d4-11ea-b1a6-4f291606dcaf has joined chat rooms
+2019-12-08T16:16:27.055Z@[34minfo[39m: Login status set for user uid= ea48eb70-19d4-11ea-b1a6-4f291606dcaf
