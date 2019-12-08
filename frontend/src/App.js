@@ -26,7 +26,7 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Landing from "./Components/Landing/Landing";
-import Admin from "./Components/Admin";
+import CreateRooms from "./Components/CreateRooms";
 
 // electron-store import
 // var { app, BrowserWindow } = window.require("electron").remote;
@@ -107,9 +107,9 @@ class App extends React.Component {
                   {" "}
                   <Register />{" "}
                 </Route>
-                <Router exact path="/admin">
-                  <Admin />
-                </Router>
+                <Route exact path="/admin">
+                  <CreateRooms />
+                </Route>
               </Switch>
             </Router>
           </Col>

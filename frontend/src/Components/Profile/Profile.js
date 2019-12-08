@@ -7,13 +7,17 @@ import {
   Row,
   Input,
   Select,
-  DatePicker,
-  Upload,
+  notification,
+  Avatar,
   Icon
 } from "antd";
+import { IP } from "./../config";
 import Pic from "./undraw_manage_chats_ylx0 (1).svg";
-
+import jwt from "jsonwebtoken";
 const { Option } = Select;
+var myArray = ["#0B132B", "#1C2541", "#3A506B", "#5BC0BE", "#6FFFE9"];
+
+var randomItem = myArray[Math.floor(Math.random() * myArray.length)];
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +36,18 @@ class Profile extends Component {
       editMode: true
     });
   };
+  openNotification = (type = "error") => {
+    notification[type]({
+      message: "Error updating user details",
+      description: "An error was encountered during updation of user details"
+    });
+  };
+  openConfirmation = (type = "success") => {
+    notification[type]({
+      message: "User details changed Succesfully",
+      description: "user Details was succesfully updated"
+    });
+  };
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -40,16 +56,26 @@ class Profile extends Component {
           editMode: true
         });
         console.log("Received values of form: ", values);
-
-        //   fetch(`http://${IP}:4000/auth/registration`, {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "text/plain"
-        //     },
-        //     body: reqBody
-        //   })
-        //     .then(r => r.text())
-        //     .then(data => console.log("data returned:", data));
+        fetch(`http://${IP}:4000/graphql`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query: `mutation{
+              updateUserDetails(uid:"${this.props.userDetails.uid}",name:"${values.username}",about:"${values.about}"){
+                status
+              }
+            }`
+          })
+        })
+          .then(res => res.json())
+          .then(res => {
+            console.log(res.data.updateUserDetails);
+            if (res.data.updateUserDetails.status) {
+              this.openConfirmation();
+            } else {
+              this.openNotification();
+            }
+          });
       }
     });
   };
@@ -61,36 +87,73 @@ class Profile extends Component {
           <Button onClick={this.enableEdit}>Edit Details</Button>
         </Row>
         <Row type="flex" justify="center">
-          <img width="300px" height="400px" src={Pic} />
+          <Avatar
+            size={200}
+            style={{
+              fontSize: "64px",
+              verticalAlign: "middle",
+              background: randomItem
+            }}
+          >
+            {this.props.userDetails.name}
+          </Avatar>
         </Row>
         <Row type="flex" justify="center">
           <Col span={16}>
             <Form onSubmit={this.handleSubmit} className="login-form">
-              <Form.Item label="Name">
+              <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
-                    { required: true, message: "Username can not be empty" }
+                    {
+                      required: true,
+                      message: "Please enter your username!"
+                    }
                   ]
                 })(
-                  <Input
-                    disabled={this.state.editMode}
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
+                  <div>
+                    <label style={{ color: "black" }}>UserName</label>
+                    <input
+                      disabled={this.state.editMode}
+                      className="input"
+                      style={{
+                        color: "black"
+                      }}
+                      prefix={
+                        <Icon
+                          type="text"
+                          style={{ color: "rgba(0,0,0,.25)" }}
+                        />
+                      }
+                      defaultValue={this.props.userDetails.name}
+                      placeholder="UserName"
+                    />
+                  </div>
                 )}
               </Form.Item>
-              <Form.Item label="About">
+              <Form.Item>
                 {getFieldDecorator("about", {
                   rules: [
                     { required: true, message: "About section is required!" }
                   ]
                 })(
-                  <Input.TextArea
-                    disabled={this.state.editMode}
-                    placeholder="About"
-                  />
+                  <div>
+                    <label style={{ color: "black" }}>About</label>
+                    <input
+                      disabled={this.state.editMode}
+                      className="input"
+                      style={{
+                        color: "black"
+                      }}
+                      prefix={
+                        <Icon
+                          type="text"
+                          style={{ color: "rgba(0,0,0,.25)" }}
+                        />
+                      }
+                      defaultValue={this.props.userDetails.about}
+                      placeholder="About"
+                    />
+                  </div>
                 )}
               </Form.Item>
               <Form.Item>
@@ -112,28 +175,6 @@ class Profile extends Component {
               </Form.Item>
             </Form>
           </Col>
-        </Row>
-        <Row>
-          <div
-            style={{
-              right: 0,
-              bottom: 0,
-              width: "100%",
-              borderTop: "1px solid #e9e9e9",
-              padding: "10px 16px",
-              background: "#fff",
-              textAlign: "right"
-            }}
-          >
-            <Button
-              disabled={this.props.deleteAccount}
-              type="primary"
-              htmlType="submit"
-              className="login-form-button"
-            >
-              Delete Account
-            </Button>
-          </div>
         </Row>
       </Row>
     );

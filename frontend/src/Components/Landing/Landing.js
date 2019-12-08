@@ -10,13 +10,13 @@ import {
   Col,
   Button,
   Spin,
-  Card,
+  Input,
   Modal,
   Drawer,
-  Upload,
+  Popconfirm,
   Tabs,
   message,
-  Divider,
+  notification,
   Badge
 } from "antd";
 import moment from "moment";
@@ -78,7 +78,7 @@ class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: jwt.decode(localStorage.getItem("token")).UID,
+      uid: jwt.decode(localStorage.getItem("token")).uid,
       msg: [],
       selectedRoom: "0",
       messageField: "",
@@ -87,7 +87,9 @@ class Landing extends Component {
       drawerVisible: false,
       modalVisible: false,
       requestData: {},
-      roomsList: []
+      roomsList: [],
+      typingUser: "none",
+      peopleOnline: []
     };
     console.log(this.state);
     this.socket = io(
@@ -98,7 +100,25 @@ class Landing extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `{
-          userID(UID:"${jwt.decode(localStorage.getItem("token")).UID}"){
+          userID(uid:"${jwt.decode(localStorage.getItem("token")).uid}"){
+            uid
+            name
+            about
+          }
+        }`
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res.data.userID);
+        this.setState({ userDetails: res.data.userID });
+      });
+    fetch(`http://${IP}:4000/graphql`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `{
+          userID(uid:"${jwt.decode(localStorage.getItem("token")).uid}"){
             roomsList{
               RID
               name
@@ -114,6 +134,19 @@ class Landing extends Component {
       });
   }
 
+  openChatNotification = msg => {
+    let roomDetails = this.state.roomsList.find(room => room.RID === msg.toID);
+    console.log(roomDetails);
+    notification.open({
+      message: `Message from ${roomDetails.name}`,
+      description: `${msg.message}`,
+      style: {
+        width: 600,
+        marginLeft: 335 - 600
+      }
+    });
+  };
+
   componentDidMount = () => {
     this.socket.on("request", async data => {
       let reqData = data;
@@ -125,27 +158,82 @@ class Landing extends Component {
     });
     this.socket.on("chat", data => {
       console.log(data);
+      this.openChatNotification(data);
       if (data.toID === this.state.selectedRoom) {
         this.setState({
           msg: [...this.state.msg, data]
         });
       }
     });
+    this.socket.on("typing", data => {
+      if (data.toID == this.state.selectedRoom) {
+        this.setState({ typingUser: data.name });
+      }
+    });
+    this.socket.on("finishTyping", data => {
+      this.setState({ typingUser: "none" });
+    });
+    this.socket.on("offline", data => {
+      if (data.room === this.state.selectedRoom) {
+        this.getOnlineList();
+      }
+    });
   };
-
+  openDeleteConfirmation = () => {
+    notification.success({
+      message: "Account Deteted",
+      description: "Account was succesfuly deleted",
+      onClick: () => {
+        console.log("Notification Clicked!");
+      }
+    });
+  };
+  openDeleteError = () => {
+    notification.error({
+      message: "Account Detetion error",
+      description: "Account was not deleted please try again",
+      onClick: () => {
+        console.log("Notification Clicked!");
+      }
+    });
+  };
+  getOnlineList = () => {
+    fetch(`http://${IP}:4000/graphql`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `{
+          usersInRoomList(roomID:"${this.state.selectedRoom}"){
+            uid
+            name
+            login
+          }
+        }`
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res.data.usersInRoomList);
+        this.setState({ peopleOnline: res.data.usersInRoomList });
+      });
+  };
   // handle message change
   handleChange = async value => {
     await this.setState({
       messageField: value
     });
     console.log(this.state.messageField);
+    this.socket.emit("typing", {
+      name: jwt.decode(localStorage.getItem("token")).name,
+      toID: this.state.selectedRoom
+    });
   };
 
   // handle message submit
   handleSubmit = async () => {
     let chatMsg = {
       fromIDDetails: {
-        UID: jwt.decode(localStorage.getItem("token")).UID,
+        uid: jwt.decode(localStorage.getItem("token")).uid,
         name: ""
       },
       toID: this.state.selectedRoom,
@@ -156,18 +244,22 @@ class Landing extends Component {
       msg: [...this.state.msg, chatMsg]
     });
     this.socket.emit("chat", {
-      uid: jwt.decode(localStorage.getItem("token")).UID,
+      uid: jwt.decode(localStorage.getItem("token")).uid,
       toID: this.state.selectedRoom,
       message: this.state.messageField,
-      createdAt: moment().format("YYYY/MM/DD hh:mm;ss")
+      createdAt: moment().format("YYYY/MM/DD hh:mm:ss")
     });
     console.log({
-      uid: jwt.decode(localStorage.getItem("token")).UID,
+      uid: jwt.decode(localStorage.getItem("token")).uid,
       toID: this.state.selectedRoom,
       msg: this.state.messageField,
       createdAt: moment().format("YYYY/MM/DD hh:mm;ss")
     });
     this.setState({ messageField: "" });
+    this.socket.emit("finishTyping", {
+      name: jwt.decode(localStorage.getItem("token")).name,
+      toID: this.state.selectedRoom
+    });
   };
 
   // Select user change
@@ -175,20 +267,20 @@ class Landing extends Component {
     console.log(key.key);
     await this.setState({
       selectedRoom: `${key.key}`,
-      userDetails: "@prajwalGowda",
       msg: []
     });
+    this.getOnlineList();
     let rawResponse = await fetch(`http://${IP}:4000/graphql`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `{
-          chats(UID:"${
-            jwt.decode(localStorage.getItem("token")).UID
+          chats(uid:"${
+            jwt.decode(localStorage.getItem("token")).uid
           }",roomID:"${this.state.selectedRoom}"){
             MID
             fromIDDetails{
-              UID
+              uid
               name
             }
             toID
@@ -205,7 +297,7 @@ class Landing extends Component {
       chats.push({
         MID: "0",
         fromID: this.state.selectedRoom,
-        fromIDDetails: { UID: this.state.selectedRoom },
+        fromIDDetails: { uid: this.state.selectedRoom },
         toID: this.state.selectedRoom,
         message: "Hello from Server"
       });
@@ -217,6 +309,7 @@ class Landing extends Component {
       // });
       this.setState({ msg: res.data.chats });
     }
+    this.refresh = setInterval(() => this.getOnlineList(), 5000);
     // .then(response => response.json())
     // .then(json => {
     //   let chats = [];
@@ -275,18 +368,25 @@ class Landing extends Component {
 
   // Show Drawer
   handleAccountDelete = async () => {
-    let rawResponse = await fetch(`http://${IP}:4000/deleteAccount`, {
+    let rawResponse = await fetch(`http://${IP}:4000/graphql`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        UID: jwt.decode(localStorage.getItem("token")).UID
+        query: `mutation{
+          deleteUser(uid:"${jwt.decode(localStorage.getItem("token")).uid}"){
+            status
+          }
+        }`
       })
     });
     let res = await rawResponse.json();
-    if (res.msg == 1) {
+    console.log(res);
+    if (res.data.deleteUser.status === true) {
+      this.openDeleteConfirmation();
       this.props.updateLogout();
       console.log("Account Deleted");
     } else {
+      this.openDeleteError();
       console.log("Account was not deleted");
     }
   };
@@ -309,43 +409,6 @@ class Landing extends Component {
       modalVisible: false
     });
   };
-
-  // getBase64 = (img, callback) => {
-  //   const reader = new FileReader();
-  //   reader.addEventListener("load", () => callback(reader.result));
-  //   reader.readAsDataURL(img);
-  // };
-
-  // beforeUpload = file => {
-  //   const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  //   if (!isJpgOrPng) {
-  //     message.error("You can only upload JPG/PNG file!");
-  //   }
-  //   const isLt2M = file.size / 1024 / 1024 < 2;
-  //   if (!isLt2M) {
-  //     message.error("Image must smaller than 2MB!");
-  //   }
-  //   return isJpgOrPng && isLt2M;
-  // };
-  // handleChange = info => {
-  //   if (info.file.status === "uploading") {
-  //     this.setState({ loading: true });
-  //     return;
-  //   }
-  //   if (info.file.status === "done") {
-  //     // Get this url from response in real world.
-  //     this.getBase64(info.file.originFileObj, imageUrl =>
-  //       this.setState(
-  //         {
-  //           imageUrl,
-  //           loading: false
-  //         },
-  //         console.log(this.state.imageUrl)
-  //       )
-  //     );
-  //   }
-  // };
-
   render() {
     return (
       <Layout>
@@ -389,7 +452,10 @@ class Landing extends Component {
             <Button
               className="button is-white"
               icon="logout"
-              onClick={this.props.updateLogout}
+              onClick={() => {
+                this.socket.close();
+                this.props.updateLogout();
+              }}
               style={{
                 marginRight: "30px",
                 color: "white",
@@ -444,7 +510,7 @@ class Landing extends Component {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        height: "93.5vh"
+                        height: "92vh"
                       }}
                     >
                       {" "}
@@ -465,9 +531,16 @@ class Landing extends Component {
                           </Row>
                           <Row>
                             <Col span={24}>
+                              <Row>
+                                <div>
+                                  {this.state.typingUser !== "none"
+                                    ? this.state.typingUser + " is typing..."
+                                    : null}
+                                </div>
+                              </Row>
                               <Row gutter={12} type="flex" justify="center">
                                 <Col span={23}>
-                                  <input
+                                  {/* <input
                                     placeholder="Type Somthing..."
                                     value={this.state.messageField}
                                     onKeyPress={event =>
@@ -490,6 +563,26 @@ class Landing extends Component {
                                       color: "black",
                                       marginLeft: "10px"
                                     }}
+                                  /> */}
+                                  <Input
+                                    placeholder="Type somthing..."
+                                    value={this.state.messageField}
+                                    style={{
+                                      width: "100%",
+                                      background: "#e6e6ea",
+                                      marginLeft: "10px",
+                                      padding: "10px",
+                                      fontSize: "1.1em",
+                                      fontWeight: "normal"
+                                    }}
+                                    onChange={({ target: { value } }) =>
+                                      this.handleChange(value)
+                                    }
+                                    onPressEnter={
+                                      this.state.messageField.length > 0
+                                        ? this.handleSubmit
+                                        : null
+                                    }
                                   />
                                 </Col>
                                 <Col span={1}>
@@ -531,30 +624,26 @@ class Landing extends Component {
                           >
                             People Online
                           </h1>
-                          <Row>
-                            <Button type="link">
-                              <Badge color="green" />
-                              prajwalGowda
-                            </Button>
-                          </Row>
-                          <Row>
-                            <Button type="link">
-                              <Badge color="green" />
-                              Prathik
-                            </Button>
-                          </Row>
-                          <Row>
-                            <Button type="link">
-                              <Badge color="green" />
-                              Tarun
-                            </Button>
-                          </Row>
-                          <Row>
-                            <Button type="link">
-                              <Badge color="red" />
-                              Omkar
-                            </Button>
-                          </Row>
+                          {this.state.peopleOnline.length > 0
+                            ? this.state.peopleOnline.map(each => {
+                                if (each.login) {
+                                  return (
+                                    <Row>
+                                      <Button type="link">
+                                        <Badge
+                                          color={
+                                            each.login === "true"
+                                              ? "green"
+                                              : "red"
+                                          }
+                                        />
+                                        {each.name}
+                                      </Button>
+                                    </Row>
+                                  );
+                                }
+                              })
+                            : null}
                         </Col>
                       </Row>
                     </div>
@@ -585,7 +674,40 @@ class Landing extends Component {
               visible={this.state.drawerVisible}
               style={{ padding: "0px" }}
             >
-              <Profile deleteAccount={this.handleAccountDelete} />
+              <Profile userDetails={this.state.userDetails} />
+              <div
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  bottom: 0,
+                  width: "100%",
+                  borderTop: "1px solid #e9e9e9",
+                  padding: "10px 16px",
+                  background: "#fff",
+                  textAlign: "right"
+                }}
+              >
+                <Popconfirm
+                  title="Are you sure you want to delete the account"
+                  onConfirm={this.handleAccountDelete}
+                  // onCancel={this.cancel}
+                  okText="Yes"
+                  icon={
+                    <Icon type="question-circle-o" style={{ color: "red" }} />
+                  }
+                  cancelText="No"
+                >
+                  <Button
+                    // onClick={this.handleAccountDelete}
+                    type="primary"
+                    // htmlType="submit"
+
+                    className="login-form-button"
+                  >
+                    Delete Account
+                  </Button>
+                </Popconfirm>
+              </div>
             </Drawer>
           </Content>
         </Layout>

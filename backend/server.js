@@ -1,12 +1,7 @@
 const app = require("express")();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-const {
-  sequelize,
-  Users,
-  Chat,
-  LoginLog
-} = require("./models/db_model");
+const { sequelize, Users, Chat, LoginLog } = require("./models/db_model");
 const { serverLog, dbLog } = require("./Loggers/loggers");
 const { router } = require("./Routes/routes");
 require("dotenv").config();
@@ -101,7 +96,9 @@ io.on("connection", async socket => {
     IPAddr: socket.handshake.address
   })
     .then(out => {
-      dbLog.info(`LoginLog created with 'online' action of user ${uid} with IP= ${socket.handshake.address}`);
+      dbLog.info(
+        `LoginLog created with 'online' action of user ${uid} with IP= ${socket.handshake.address}`
+      );
       serverLog.info(`user ${uid} is ONLINE`);
     })
     .catch(err => {
@@ -126,9 +123,10 @@ io.on("connection", async socket => {
         for (let i = 0; i < live[`${uid}`].rooms.length; i++) {
           console.log(live[`${uid}`].rooms[i]);
           socket.join(live[`${uid}`].rooms[i], () => {
-            socket
-              .to(live[`${uid}`].rooms[i])
-              .broadcast.emit("online", { room: live[`${uid}`].rooms[i] ,member: uid });
+            socket.to(live[`${uid}`].rooms[i]).broadcast.emit("online", {
+              room: live[`${uid}`].rooms[i],
+              member: uid
+            });
           });
         }
       }
@@ -241,21 +239,31 @@ io.on("connection", async socket => {
 
   //outTyping Listener
   socket.on("typing", data => {
-    serverLog.info(`sending typing status of ${data.uid} to ${data.toID}`);
-    socket.to(data.toID).broadcast.emit("typing", { fromId: data.uid });
+    serverLog.info(`sending typing status of ${data.name} to ${data.toID}`);
+    socket
+      .to(data.toID)
+      .broadcast.emit("typing", { name: data.name, toID: data.toID });
+  });
+  socket.on("finishTyping", data => {
+    serverLog.info(`sending typing status of ${data.name} to ${data.toID}`);
+    socket.to(data.toID).broadcast.emit("finishTyping");
   });
 
   //onlinePoll Listener
   socket.on("poll", data => {
     serverLog.info(`contact poll requested by user ${data.uid}`);
-    for(var x in live){
-      if(live.hasOwnProperty(x) && x!=data.uid){
-        if(live[`${x}`].rooms != null ){
-          for(var i=0;i<live[`${x}`].rooms.length;i++){
-            for(var j=0;j<live[`${data.uid}`].rooms.length;j++){
-              if(live[`${x}`].rooms[i]==live[`${data.uid}`].rooms[j]){
-                live[`${x}`].sid.to(live[`${x}`].rooms[i])
-                .broadcast.emit('online',{room:live[`${x}`].rooms[i],member: x});
+    for (var x in live) {
+      if (live.hasOwnProperty(x) && x != data.uid) {
+        if (live[`${x}`].rooms != null) {
+          for (var i = 0; i < live[`${x}`].rooms.length; i++) {
+            for (var j = 0; j < live[`${data.uid}`].rooms.length; j++) {
+              if (live[`${x}`].rooms[i] == live[`${data.uid}`].rooms[j]) {
+                live[`${x}`].sid
+                  .to(live[`${x}`].rooms[i])
+                  .broadcast.emit("online", {
+                    room: live[`${x}`].rooms[i],
+                    member: x
+                  });
               }
             }
           }
@@ -266,19 +274,36 @@ io.on("connection", async socket => {
   });
 
   //diconnect Listener
-  socket.on("disconnecting", reason => {
+  socket.on("disconnecting", async reason => {
     if (authFlag == true) {
       let id = live2[socket.id];
       if (live[`${id}`].rooms != null) {
         for (let i = 0; i < live[`${id}`].rooms.length; i++) {
-          socket
-            .to(live[`${id}`].rooms[i])
-            .broadcast.emit("offline", { room: live[`${id}`].rooms[i] ,member: id });
+          socket.to(live[`${id}`].rooms[i]).broadcast.emit("offline", {
+            room: live[`${id}`].rooms[i],
+            member: id
+          });
           socket.leave(live[`${id}`].rooms[i]);
         }
       }
       delete live[`${id}`];
       delete live2[socket.id];
+      Users.update(
+        {
+          login: false
+        },
+        {
+          where: { uid: id }
+        }
+      )
+        .then(out => {
+          dbLog.info(`user updated  ${id}`);
+          serverLog.info(`user ${id} is OFFLINE`);
+        })
+        .catch(err => {
+          dbLog.error(`Failed to update user of user ${id}. Error: ${err}`);
+          serverLog.warn(`Failed to log offline status of user ${id}`);
+        });
       LoginLog.create({
         action: "offline",
         userid: id,

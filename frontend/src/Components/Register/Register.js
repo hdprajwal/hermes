@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Icon, Button, Select, Carousel } from "antd";
+import { Form, Icon, Button, Select, Carousel, notification } from "antd";
 import illustration1 from "./undraw_texting_k35o.svg";
 import illustration2 from "./undraw_begin_chat_c6pj.svg";
 import illustration3 from "./undraw_connected_8wvi.svg";
@@ -34,6 +34,18 @@ class Register extends Component {
         this.setState({ rooms: res.data.roomsList });
       });
   }
+  openNotification = (type = "error") => {
+    notification[type]({
+      message: "Error Creating user",
+      description: "An error was encountered during user creation please retry"
+    });
+  };
+  openConfirmation = (type = "success") => {
+    notification[type]({
+      message: "User Created Succesfully",
+      description: "Please check your email and verification email"
+    });
+  };
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -44,7 +56,8 @@ class Register extends Component {
             email: values.email,
             name: values.username,
             password: values.password,
-            rooms: values.rooms
+            rooms: values.rooms,
+            about: values.about
           },
           Buffer.from(
             "677e8e805553df6aaac622e6d01107bd31f62829ff72faf67e2ea5818ae3c438",
@@ -60,7 +73,16 @@ class Register extends Component {
           body: reqBody
         })
           .then(r => r.text())
-          .then(data => console.log("data returned:", data));
+          .then(data => {
+            if (
+              data === "User created successfully.Check email for verification"
+            ) {
+              this.openConfirmation();
+            } else {
+              this.props.form.resetFields();
+              this.openNotification();
+            }
+          });
       }
     });
   };
@@ -181,6 +203,27 @@ class Register extends Component {
                               />
                             }
                             placeholder="Password"
+                          />
+                        </div>
+                      )}
+                    </Form.Item>
+                    <Form.Item>
+                      {getFieldDecorator("about", {
+                        rules: [
+                          {
+                            required: true,
+                            message: "Please enter your username!"
+                          }
+                        ]
+                      })(
+                        <div>
+                          <label style={{ color: "black" }}>About</label>
+                          <textarea
+                            className="input"
+                            style={{
+                              color: "black"
+                            }}
+                            placeholder="About"
                           />
                         </div>
                       )}

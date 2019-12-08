@@ -1,8 +1,56 @@
 import React, { Component } from "react";
 import svgLogin from "./Login/undraw_online_chat_d7ek.svg";
-import { Form, Button } from "antd";
+import { IP, KEY } from "./config";
+import { Form, Button, notification } from "antd";
 
 class CreateRooms extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log("Received values of form: ", values);
+        let pass = "h3rme$";
+        if (values.password == pass) {
+          fetch(`http://${IP}:4000/graphql`, {
+            method: "POST",
+            headers: {
+              "content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              query: `mutation{
+                addRoom(name:"${values.roomName}"){
+                  RID
+                  name
+                }
+              }`
+            })
+          })
+            .then(r => r.json())
+            .then(data => {
+              console.log(data);
+              let x = data.data;
+              if (x.addRoom.name === values.roomName) {
+                this.openConfirmation();
+              }
+            });
+        } else {
+          this.openNotification();
+        }
+      }
+    });
+  };
+  openNotification = (type = "error") => {
+    notification[type]({
+      message: "Password is Wrong",
+      description: "Enter a valid Admin Password "
+    });
+  };
+  openConfirmation = (type = "success") => {
+    notification[type]({
+      message: "Password is Wrong",
+      description: "Enter a valid Admin Password "
+    });
+  };
   render() {
     const { getFieldDecorator } = this.props.form;
 
@@ -33,11 +81,11 @@ class CreateRooms extends Component {
                     </h1>
                     <Form onSubmit={this.handleSubmit}>
                       <Form.Item>
-                        {getFieldDecorator("email", {
+                        {getFieldDecorator("roomName", {
                           rules: [
                             {
                               required: true,
-                              message: "Please enter your email!"
+                              message: "Please enter a room name!"
                             }
                           ]
                         })(
@@ -45,7 +93,6 @@ class CreateRooms extends Component {
                             <label style={{ color: "black" }}>Room Name</label>
                             <input
                               className="input"
-                              type="email"
                               style={{
                                 background: "#fff",
                                 color: "black"

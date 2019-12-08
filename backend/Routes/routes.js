@@ -43,7 +43,7 @@ router.post("/auth/login", (req, res) => {
   const token = jwt.decode(req.body);
   console.log(token);
   Users.findOne({
-    attributes: ["uid", "password", "verified"],
+    attributes: ["uid", "password", "verified", "name", "about"],
     where: {
       email: token.email
     }
@@ -67,7 +67,11 @@ router.post("/auth/login", (req, res) => {
                   result.IPAddr
               );
               const Rtoken = jwt.sign(
-                { uid: `${out.uid}` },
+                {
+                  uid: `${out.uid}`,
+                  name: `${out.name}`,
+                  about: `${out.about}`
+                },
                 Buffer.from(process.env.KEY, "hex"),
                 { expiresIn: "30d" }
               );
@@ -121,7 +125,7 @@ router.post("/auth/registration", async (req, res) => {
             }
           });
           let url =
-            '<a href="http://165.22.221.120:4000/verify?email=' +
+            '<a href="http://localhost:4000/verify?email=' +
             result.email +
             "&code=" +
             result.code +
@@ -186,7 +190,11 @@ router.get("/verify", (req, res) => {
             dbLog.info(
               "Verification record deleted with email: " + req.query.email
             );
-            res.status(200).send("Verification successful");
+            res
+              .status(200)
+              .send(
+                '<div>Verification successful Login <a href="http://localhost:3000">here</a> </div>'
+              );
           })
           .catch(err => {
             serverLog.error(

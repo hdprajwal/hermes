@@ -5,8 +5,8 @@ import "./Message.css";
 const jwt = require("jsonwebtoken");
 
 const Message = ({ data }) => {
-  return data.fromIDDetails.UID ===
-    jwt.decode(localStorage.getItem("token")).UID ? (
+  return data.fromIDDetails.uid ===
+    jwt.decode(localStorage.getItem("token")).uid ? (
     <div className="sentMessageContainer">
       <p className="senderDetails">{data.createdAt}</p>
       <div className="sentMessageBox">

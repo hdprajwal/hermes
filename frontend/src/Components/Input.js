@@ -31,7 +31,23 @@ class InputFunction extends React.Component {
     return (
       <Row gutter={12} type="flex" justify="center">
         <Col span={23}>
-          <input
+          <Input
+            style={{ width: "400px" }}
+            onChange={({ target: { value } }) => this.handleChange(value)}
+            onPressEnter={e => {
+              this.handleSubmit(), (event.target.value = "");
+            }}
+          />
+        </Col>
+      </Row>
+    );
+  }
+}
+
+export default InputFunction;
+
+{
+  /* <input
             placeholder="Type Somthing..."
             onKeyPress={event =>
               event.key === "Enter"
@@ -50,11 +66,5 @@ class InputFunction extends React.Component {
               fontWeight: "normal",
               color: "black"
             }}
-          />
-        </Col>
-      </Row>
-    );
-  }
+          /> */
 }
-
-export default InputFunction;

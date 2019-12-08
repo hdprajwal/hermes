@@ -19,6 +19,7 @@ const userType = new GraphQLObjectType({
     about: { type: GraphQLString },
     verified: { type: GraphQLBoolean },
     email: { type: GraphQLString },
+    login: { type: GraphQLString },
     name: { type: GraphQLString },
     image: { type: GraphQLString },
     rooms: { type: GraphQLList(GraphQLString) },
@@ -118,7 +119,6 @@ const roomsType = new GraphQLObjectType({
     name: { type: GraphQLString }
   })
 });
-
 
 const rootQueryType = new GraphQLObjectType({
   name: "root",
@@ -323,26 +323,75 @@ const rootMutationType = new GraphQLObjectType({
       type: new GraphQLObjectType({
         name: "deleteType",
         fields: {
-          status:{type: GraphQLBoolean}
+          status: { type: GraphQLBoolean }
         }
       }),
       args: {
-        uid: {type: GraphQLID}
+        uid: { type: GraphQLID }
       },
-      async resolve(parent,args) {
+      async resolve(parent, args) {
         var res = false;
-        Users.destroy({
-          where:{
+        await Users.destroy({
+          where: {
             uid: args.uid
           }
-        }).then(()=>{
-          serverLog.info(`User deleted with uid= ${args.uid}`);
-          dbLog.info(`Successfully deleted User with uid= ${args.uid}`);
-          res=true;
-        }).catch((err)=>{
-          serverLog.error(`Failed to delete user with uid= ${args.uid}`);
-          dbLog.error(`User deletion failed with uid= ${args.uid} and error: ${err}`);
-        });
+        })
+          .then(() => {
+            serverLog.info(`User deleted with uid= ${args.uid}`);
+            dbLog.info(`Successfully deleted User with uid= ${args.uid}`);
+            res = {
+              status: true
+            };
+          })
+          .catch(err => {
+            res = {
+              status: false
+            };
+            serverLog.error(`Failed to delete user with uid= ${args.uid}`);
+            dbLog.error(
+              `User deletion failed with uid= ${args.uid} and error: ${err}`
+            );
+          });
+        return res;
+      }
+    },
+    updateUserDetails: {
+      type: new GraphQLObjectType({
+        name: "updateDetailsType",
+        fields: {
+          status: { type: GraphQLBoolean }
+        }
+      }),
+      args: {
+        uid: { type: GraphQLString },
+        name: { type: GraphQLString },
+        about: { type: GraphQLString }
+      },
+      async resolve(parent, args) {
+        let data = {
+          name: args.name,
+          about: args.about
+        };
+        await Users.update(data, {
+          returning: true,
+          where: { uid: args.uid }
+        })
+          .then(() => {
+            serverLog.info(`Updating details of user with uid : ${data.uid}`);
+            dbLog.info(`Updating details of user with uid = ${data.uid}`);
+            res = {
+              status: true
+            };
+          })
+          .catch(err => {
+            res = {
+              status: false
+            };
+            serverLog.info(
+              `can not Update details of user with uid : ${data.uid}`
+            );
+            dbLog.info(`can not Update details of user with uid = ${data.uid}`);
+          });
         return res;
       }
     }
