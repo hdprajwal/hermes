@@ -179,7 +179,7 @@ io.on("connection", async socket => {
       message: data.message,
       fromIDDetails: {
         uid: data.uid,
-        name: live[data.uid].name
+        name: live[`${data.uid}`].name
       },
       createdAt: data.createdAt
     };
