@@ -3746,3 +3746,48 @@
 2019-12-08T16:17:29.857Z@info: Updated user Login status uid = ea48eb70-19d4-11ea-b1a6-4f291606dcaf
 2019-12-08T16:17:30.113Z@info: user queried :	{"uid":"ea48eb70-19d4-11ea-b1a6-4f291606dcaf","about":"dfkfjgjhdkfjhg","verified":true,"email":"omkariyer99@gmail.com","name":"Omkar","image":null,"rooms":["f241e910-19cc-11ea-947c-432acf735b9f","fb4bc0d0-19cc-11ea-947c-432acf735b9f"]}
 2019-12-08T16:17:30.117Z@info: user queried :	{"uid":"ea48eb70-19d4-11ea-b1a6-4f291606dcaf","about":"dfkfjgjhdkfjhg","verified":true,"email":"omkariyer99@gmail.com","name":"Omkar","image":null,"rooms":["f241e910-19cc-11ea-947c-432acf735b9f","fb4bc0d0-19cc-11ea-947c-432acf735b9f"]}
+2019-12-09T04:22:21.140Z@info: User queried with email= undefined
+2019-12-09T04:22:21.162Z@info: Login log complete with uid= undefined ip= 
+2019-12-09T04:22:21.209Z@info: LoginLog created with 'online' action of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b with IP= ::1
+2019-12-09T04:22:21.217Z@info: user data queried uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.231Z@info: Updated user Login status uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.290Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:21.293Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:23.448Z@info: user updated  1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:23.449Z@info: LoginLog created with action 'offline' of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:24.920Z@info: LoginLog created with 'online' action of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b with IP= ::1
+2019-12-09T04:22:24.922Z@info: user data queried uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:24.924Z@info: Updated user Login status uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:25.045Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:25.046Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:30.344Z@info: user Requests query made with uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b roomID=96b749f0-18f5-11ea-b211-db346511efa6
+2019-12-09T04:22:49.727Z@info: User queried with email= undefined
+2019-12-09T04:22:49.737Z@info: Login log complete with uid= undefined ip= 
+2019-12-09T04:22:49.760Z@info: LoginLog created with 'online' action of user e81a7540-1a2d-11ea-b534-933a33c4a32d with IP= ::1
+2019-12-09T04:22:49.762Z@info: user data queried uid = e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.767Z@info: Updated user Login status uid = e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.831Z@info: user queried :	{"uid":"e81a7540-1a2d-11ea-b534-933a33c4a32d","about":"ahdkahkahsa","verified":true,"email":"hdprajwalgowda@hotmail.com","name":"Cerberus","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:49.834Z@info: user queried :	{"uid":"e81a7540-1a2d-11ea-b534-933a33c4a32d","about":"ahdkahkahsa","verified":true,"email":"hdprajwalgowda@hotmail.com","name":"Cerberus","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:22:56.975Z@info: user updated  e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:56.976Z@info: LoginLog created with action 'offline' of user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:09.393Z@info: user updated  1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:09.393Z@info: LoginLog created with action 'offline' of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.753Z@info: User queried with email= undefined
+2019-12-09T04:23:29.762Z@info: Login log complete with uid= undefined ip= 
+2019-12-09T04:23:29.798Z@info: LoginLog created with 'online' action of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b with IP= ::1
+2019-12-09T04:23:29.804Z@info: user data queried uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.809Z@info: Updated user Login status uid = 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.864Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:23:29.873Z@info: user queried :	{"uid":"1d96f610-1a2b-11ea-a009-a1ba40f3790b","about":"i am the creator","verified":true,"email":"omkariyer99@gmail.ocm","name":"RoboWiz","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:23:34.471Z@info: user Requests query made with uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b roomID=96b749f0-18f5-11ea-b211-db346511efa6
+2019-12-09T04:23:50.570Z@info: User queried with email= undefined
+2019-12-09T04:23:50.579Z@info: Login log complete with uid= undefined ip= 
+2019-12-09T04:23:50.598Z@info: LoginLog created with 'online' action of user e81a7540-1a2d-11ea-b534-933a33c4a32d with IP= ::1
+2019-12-09T04:23:50.603Z@info: user data queried uid = e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.609Z@info: Updated user Login status uid = e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.686Z@info: user queried :	{"uid":"e81a7540-1a2d-11ea-b534-933a33c4a32d","about":"ahdkahkahsa","verified":true,"email":"hdprajwalgowda@hotmail.com","name":"Cerberus","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:23:50.692Z@info: user queried :	{"uid":"e81a7540-1a2d-11ea-b534-933a33c4a32d","about":"ahdkahkahsa","verified":true,"email":"hdprajwalgowda@hotmail.com","name":"Cerberus","image":null,"rooms":["96b749f0-18f5-11ea-b211-db346511efa6"]}
+2019-12-09T04:23:52.422Z@info: user updated  e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:52.422Z@info: LoginLog created with action 'offline' of user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:24:25.615Z@info: user updated  1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:24:25.615Z@info: LoginLog created with action 'offline' of user 1d96f610-1a2b-11ea-a009-a1ba40f3790b

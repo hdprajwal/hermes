@@ -5786,3 +5786,69 @@
 2019-12-08T16:17:29.858Z@[34minfo[39m: Login status set for user uid= ea48eb70-19d4-11ea-b1a6-4f291606dcaf
 2019-12-08T16:17:30.109Z@[34minfo[39m: userID query made with id=ea48eb70-19d4-11ea-b1a6-4f291606dcaf
 2019-12-08T16:17:30.116Z@[34minfo[39m: userID query made with id=ea48eb70-19d4-11ea-b1a6-4f291606dcaf
+2019-12-09T04:19:54.102Z@[34minfo[39m: listening on port 4000
+2019-12-09T04:19:54.136Z@[34minfo[39m: Connection has been established successfully.
+2019-12-09T04:22:21.140Z@[34minfo[39m: User Login query with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.161Z@[34minfo[39m: Login log creation complete
+2019-12-09T04:22:21.164Z@[34minfo[39m: Token generated with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.209Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is ONLINE
+2019-12-09T04:22:21.217Z@[34minfo[39m: user uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b has joined chat rooms
+2019-12-09T04:22:21.232Z@[34minfo[39m: Login status set for user uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.284Z@[34minfo[39m: contact poll requested by user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.284Z@[34minfo[39m: contact polling finished for user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.290Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:21.293Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:23.438Z@[34minfo[39m: user disconnected with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b. Reason = transport close
+2019-12-09T04:22:23.448Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE
+2019-12-09T04:22:23.449Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE
+2019-12-09T04:22:24.920Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is ONLINE
+2019-12-09T04:22:24.922Z@[34minfo[39m: user uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b has joined chat rooms
+2019-12-09T04:22:24.925Z@[34minfo[39m: Login status set for user uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:25.043Z@[34minfo[39m: contact poll requested by user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:25.044Z@[34minfo[39m: contact polling finished for user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:25.045Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:25.046Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:22:30.344Z@[34minfo[39m: user Chat query made with uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b roomID=96b749f0-18f5-11ea-b211-db346511efa6
+2019-12-09T04:22:49.726Z@[34minfo[39m: User Login query with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.736Z@[34minfo[39m: Login log creation complete
+2019-12-09T04:22:49.737Z@[34minfo[39m: Token generated with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.760Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is ONLINE
+2019-12-09T04:22:49.762Z@[34minfo[39m: user uid=e81a7540-1a2d-11ea-b534-933a33c4a32d has joined chat rooms
+2019-12-09T04:22:49.767Z@[34minfo[39m: Login status set for user uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.831Z@[34minfo[39m: userID query made with id=e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.834Z@[34minfo[39m: userID query made with id=e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.836Z@[34minfo[39m: contact poll requested by user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:49.836Z@[34minfo[39m: contact polling finished for user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:22:56.966Z@[34minfo[39m: user disconnected with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d. Reason = client namespace disconnect
+2019-12-09T04:22:56.975Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is OFFLINE
+2019-12-09T04:22:56.976Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is OFFLINE
+2019-12-09T04:23:09.376Z@[34minfo[39m: user disconnected with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b. Reason = transport close
+2019-12-09T04:23:09.393Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE
+2019-12-09T04:23:09.393Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE
+2019-12-09T04:23:29.753Z@[34minfo[39m: User Login query with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.761Z@[34minfo[39m: Login log creation complete
+2019-12-09T04:23:29.762Z@[34minfo[39m: Token generated with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.798Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is ONLINE
+2019-12-09T04:23:29.804Z@[34minfo[39m: user uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b has joined chat rooms
+2019-12-09T04:23:29.809Z@[34minfo[39m: Login status set for user uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.864Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.871Z@[34minfo[39m: userID query made with id=1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.874Z@[34minfo[39m: contact poll requested by user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:29.874Z@[34minfo[39m: contact polling finished for user 1d96f610-1a2b-11ea-a009-a1ba40f3790b
+2019-12-09T04:23:34.471Z@[34minfo[39m: user Chat query made with uid=1d96f610-1a2b-11ea-a009-a1ba40f3790b roomID=96b749f0-18f5-11ea-b211-db346511efa6
+2019-12-09T04:23:50.570Z@[34minfo[39m: User Login query with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.579Z@[34minfo[39m: Login log creation complete
+2019-12-09T04:23:50.579Z@[34minfo[39m: Token generated with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.599Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is ONLINE
+2019-12-09T04:23:50.604Z@[34minfo[39m: user uid=e81a7540-1a2d-11ea-b534-933a33c4a32d has joined chat rooms
+2019-12-09T04:23:50.609Z@[34minfo[39m: Login status set for user uid= e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.676Z@[34minfo[39m: contact poll requested by user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.676Z@[34minfo[39m: contact polling finished for user e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.684Z@[34minfo[39m: userID query made with id=e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:50.692Z@[34minfo[39m: userID query made with id=e81a7540-1a2d-11ea-b534-933a33c4a32d
+2019-12-09T04:23:52.410Z@[34minfo[39m: user disconnected with uid= e81a7540-1a2d-11ea-b534-933a33c4a32d. Reason = client namespace disconnect
+2019-12-09T04:23:52.422Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is OFFLINE
+2019-12-09T04:23:52.422Z@[34minfo[39m: user e81a7540-1a2d-11ea-b534-933a33c4a32d is OFFLINE
+2019-12-09T04:24:25.597Z@[34minfo[39m: user disconnected with uid= 1d96f610-1a2b-11ea-a009-a1ba40f3790b. Reason = transport close
+2019-12-09T04:24:25.615Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE
+2019-12-09T04:24:25.615Z@[34minfo[39m: user 1d96f610-1a2b-11ea-a009-a1ba40f3790b is OFFLINE

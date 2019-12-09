@@ -178,6 +178,12 @@ class Landing extends Component {
         this.getOnlineList();
       }
     });
+    this.socket.on("online", data => {
+      if (data.room === this.state.selectedRoom) {
+        this.getOnlineList();
+      }
+    });
+    this.socket.emit('poll',{uid: this.state.uid});
   };
   openDeleteConfirmation = () => {
     notification.success({
@@ -309,7 +315,7 @@ class Landing extends Component {
       // });
       this.setState({ msg: res.data.chats });
     }
-    this.refresh = setInterval(() => this.getOnlineList(), 5000);
+    // this.refresh = setInterval(() => this.getOnlineList(), 5000);
     // .then(response => response.json())
     // .then(json => {
     //   let chats = [];
