@@ -1,5 +1,17 @@
 # Hermes Messenger (DBMS Project)
 ## Screenshots of the Web App
+1. Login page. 
+![login](/screenshots/image2.png). 
+  
+2. Regitration page. 
+![register](/screenshots/image10.png).
+
+3. Chat room page. 
+![chat](/screenshots/image3.png). 
+
+4. User details. 
+![user](/screenshots/image4.png). 
+
 
 ## Backend 
 ### Setting up database
