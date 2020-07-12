@@ -28,10 +28,6 @@
 * use serverLog to log any server related messages
 * use dbLog to log database related messages
 #### Usage
-```javascript 
-   logger.level('message');
-```
-* where logger is one of the loggers and level defines the type of log message
 * the levels can be:
 
     |level    | priority|
