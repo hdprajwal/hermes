@@ -7,7 +7,7 @@
 3. Chat Room page. 
 ![chat page]('/screenshots/image3.png'). 
 4. User details page. 
-![user]('/screenshots/image4.png'). 
+![user page]('/screenshots/image4.png'). 
 
 ## Backend 
 ### Setting up database
