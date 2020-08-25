@@ -115,10 +115,11 @@ io.on("connection", async socket => {
   })
     .then(out => {
       dbLog.info("user data queried uid = " + uid);
-      live[`${uid}`].name = out.name;
+      /*live[`${uid}`].name = out.name;
       live[`${uid}`].email = out.email;
       live[`${uid}`].about = out.about;
-      live[`${uid}`].rooms = out.rooms;
+      live[`${uid}`].rooms = out.rooms;*/
+      live[`${uid}`] = {...out};
       if (live[`${uid}`].rooms != null) {
         for (let i = 0; i < live[`${uid}`].rooms.length; i++) {
           console.log(live[`${uid}`].rooms[i]);
