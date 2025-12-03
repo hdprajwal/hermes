@@ -37,9 +37,9 @@
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "raw-body": "^2.4.1",
-    "sequelize": "^5.19.2",
+    "sequelize": "^5.22.5",
     "socket.io": "^2.3.0",
-    "validator": "^13.7.0",
+    "validator": "^13.15.23",
     "winston": "^3.2.1"
   }
 }
